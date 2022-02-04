@@ -1,0 +1,12 @@
+---
+- hosts: devserver
+  tasks:
+    - name: downlod jar from nexus
+      become_user: jenkins
+      maven_artifact:
+        group_id: org.springframework
+        artifact_id: gs-spring-boot
+        version: "{{ versionD }}"
+        repository_url: http://18.216.78.162:8081/repository/maven-releases/
+        username: admin
+        password: '4444'
